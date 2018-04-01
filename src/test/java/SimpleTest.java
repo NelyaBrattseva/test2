@@ -1,19 +1,14 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.*;
+import core.GoogleMainPage;
+import org.testng.annotations.Test;
 
-public class SimpleTest extends BaseClass{
+public class SimpleTest extends TestBase {
 
 
     @Test
-    public void navigateToGoogleAndSearch() {
-        driver.get("https://www.google.com/");
-        WebElement searchField = driver.findElement(By.name("q"));
-        searchField.sendKeys("facebook", Keys.ENTER);
-
+    public void search() {
+        GoogleMainPage googleMainPage = new GoogleMainPage(driver);
+        googleMainPage.open();
+        googleMainPage.enterText("facebook");
     }
 
 
